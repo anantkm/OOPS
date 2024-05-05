@@ -164,3 +164,11 @@ if __name__ == "__main__":
     main()
 
 ```
+
+
+### More information
+- **Design Pattern**: Facade Pattern
+- **Reason**:
+  - **Simplification of Interfaces**: The `ConcertTicketBookingSystem` class acts as a facade, providing a simplified interface to the complex subsystems involved in managing concerts, user accounts, ticket bookings, and payments.
+  - **Centralized Control**: This pattern allows the system to handle various operations like event management, ticket booking, and payment processing through a single interface, making the system easier to use and maintain.
+  - **Decoupling of System Components**: By separating the client interface from the complex subsystems, the system components are better modularized, making them easier to manage and adapt to changes.
