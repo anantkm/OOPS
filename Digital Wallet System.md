@@ -41,26 +41,6 @@ class User:
         self.user_id: str = user_id
         self.name: str = name
         self.wallet: 'Wallet' = Wallet(self)
-
-class Wallet:
-    def __init__(self, user: User) -> None:
-        self.user: User = user
-        self.balance: float = 0.0
-        self.transaction_history: List['Transaction'] = []
-
-    def add_funds(self, amount: float) -> bool:
-        if amount <= 0:
-            return False
-        self.balance += amount
-        self.transaction_history.append(Transaction("Deposit", amount, self.balance))
-        return True
-
-    def withdraw_funds(self, amount: float) -> bool:
-        if amount > self.balance:
-            return False
-        self.balance -= amount
-        self.transaction_history.append(Transaction("Withdrawal", amount, self.balance))
-        return True
 ```
 ### Wallet Class
 Represents a user's digital wallet.
@@ -118,4 +98,54 @@ class DigitalWalletSystem:
                 receiver_wallet.add_funds(amount)
                 return True
         return False
+```
+### Example usage
+```python
+def main():
+    # Create user accounts for Alice and Bob
+    alice = User("001", "Alice")
+    bob = User("002", "Bob")
+
+    # Initialize the digital wallet system
+    wallet_system = DigitalWalletSystem()
+    wallet_system.add_user(alice)
+    wallet_system.add_user(bob)
+
+    # Alice adds funds to her wallet
+    alice.wallet.add_funds(150.0)
+    print(f"Alice's balance after deposit: ${alice.wallet.balance:.2f}")
+
+    # Bob adds funds to his wallet
+    bob.wallet.add_funds(100.0)
+    print(f"Bob's balance after deposit: ${bob.wallet.balance:.2f}")
+
+    # Alice sends money to Bob
+    if wallet_system.transfer_funds("001", "002", 50.0):
+        print("Transfer successful.")
+    else:
+        print("Transfer failed.")
+
+    print(f"Alice's balance after transfer: ${alice.wallet.balance:.2f}")
+    print(f"Bob's balance after transfer: ${bob.wallet.balance:.2f}")
+
+    # Alice withdraws some funds
+    if alice.wallet.withdraw_funds(30):
+        print("Withdrawal successful.")
+    else:
+        print("Insufficient funds.")
+
+    print(f"Alice's balance after withdrawal: ${alice.wallet.balance:.2f}")
+
+    # Print transaction history for Alice
+    print("\nAlice's transaction history:")
+    for transaction in alice.wallet.transaction_history:
+        print(f"{transaction.type} of ${transaction.amount:.2f} on {transaction.date.strftime('%Y-%m-%d %H:%M:%S')} - Balance: ${transaction.post_transaction_balance:.2f}")
+
+    # Print transaction history for Bob
+    print("\nBob's transaction history:")
+    for transaction in bob.wallet.transaction_history:
+        print(f"{transaction.type} of ${transaction.amount:.2f} on {transaction.date.strftime('%Y-%m-%d %H:%M:%S')} - Balance: ${transaction.post_transaction_balance:.2f}")
+
+if __name__ == "__main__":
+    main()
 ```
