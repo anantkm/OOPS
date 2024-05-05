@@ -124,3 +124,9 @@ if __name__ == "__main__":
     main()
 
 ```
+### More information
+- **Design Pattern**: Composite Pattern
+- **Benefits**:
+  - **Uniformity**: Treats single objects (like a specific car) and collections (like all cars or rentals) with the same management approach.
+  - **Simplicity**: Simplifies client interactions with the system by handling different tasks (renting, returning) uniformly.
+  - **Scalability**: Easily adaptable and expandable for adding new features or managing more complex operations as the system grows.
