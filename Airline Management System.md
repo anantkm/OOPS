@@ -185,6 +185,9 @@ def main():
     print(f"Managed flights: {[f.flight_number for f in airline_system.flights]}")
     print(f"Managed passengers: {[p.name for p in airline_system.passengers]}")
     print(f"Managed crew members: {[c.name for c in airline_system.crew_members]}")
+
+if __name__ == "__main__":
+    main()
 ```
 ### More information
 - **Design Pattern**: Composite Pattern
@@ -192,10 +195,4 @@ def main():
   - **Uniformity**: Treats single objects and collections with the same methods.
   - **Simplicity**: Simplifies client interactions with the system.
   - **Scalability**: Easily adaptable and expandable for new types of operations.
-
-
-
-if __name__ == "__main__":
-    main()
-```
 
