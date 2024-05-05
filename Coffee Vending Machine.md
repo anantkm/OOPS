@@ -124,3 +124,10 @@ if __name__ == "__main__":
     main()
 
 ```
+
+### More information
+- **Design Pattern**: Facade Pattern
+- **Reason**:
+  - **Simplification of Interfaces**: The `CoffeeVendingMachine` class acts as a facade, simplifying the complex subsystems of inventory management, coffee preparation, and payment processing for the client.
+  - **Centralized Control**: This pattern allows the machine to handle various operations like selecting coffee, managing inventory, and processing payments through a single interface, making the system easier to use and maintain.
+  - **Decoupling of System Components**: The pattern helps in separating the interface exposed to the customer from the internal complexities involved in managing inventory and processing payments, thereby decoupling the system components for better modularity and easier troubleshooting or upgrades.
