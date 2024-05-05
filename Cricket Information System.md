@@ -155,3 +155,9 @@ if __name__ == "__main__":
     main()
 
 ```
+### More information
+- **Design Pattern**: Observer Pattern
+- **Reason**:
+  - **Real-Time Updates**: Ensures that changes in match scores, player performances, or team compositions are propagated in real time to all relevant parts of the system.
+  - **Decoupling of Components**: Allows the system to maintain a clean separation between the data models (matches, players, teams) and the components that need updates, enhancing modularity and maintainability.
+  - **Dynamic Interaction**: Supports dynamic interactions between the core system and its various components, allowing for scalable and flexible software architecture that can handle the dynamic nature of live sports updates effectively.
