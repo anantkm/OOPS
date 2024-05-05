@@ -186,6 +186,10 @@ def main():
     print(f"Managed passengers: {[p.name for p in airline_system.passengers]}")
     print(f"Managed crew members: {[c.name for c in airline_system.crew_members]}")
 
+### Design Pattern
+The design pattern used in the Airline Management System is the **Composite Pattern**. This pattern is chosen because it allows the `AirlineManagementSystem` class to uniformly manage both individual objects (such as a single flight or passenger) and compositions of objects (like collections of flights or passengers). This uniform treatment simplifies interactions and operations within the system, making it scalable and flexible for handling complex structures. This approach is particularly suitable for managing the various components of an airline's operations efficiently.
+
+
 if __name__ == "__main__":
     main()
 ```
