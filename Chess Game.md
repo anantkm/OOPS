@@ -142,3 +142,11 @@ if __name__ == "__main__":
     main()
 
 ```
+
+
+### More information
+- **Design Pattern**: Strategy Pattern
+- **Reason**:
+  - **Flexible Behavior**: Each piece type (like a pawn, knight, bishop, etc.) can have different moving strategies, which are implemented as behaviors that can be switched out at runtime if necessary.
+  - **Encapsulation of Algorithms**: The movement rules for each chess piece are encapsulated in their respective classes, allowing the algorithms to be independently varied from the clients that use them.
+  - **Interchangeability**: The Strategy Pattern allows the chess pieces' movement behaviors to be set dynamically during runtime, which is useful for potentially altering game dynamics or adding new piece types with unique behaviors.
