@@ -93,3 +93,48 @@ class TrafficSignalSystem:
     
     #additional methods to update the system config
 ```
+
+### Example Usage
+``` python
+def main():
+    # Initialize the traffic signal system
+    signal_system = TrafficSignalSystem()
+
+    # Create intersection controller
+    intersection = IntersectionController()
+
+    # Create traffic lights and add them to the intersection
+    traffic_light1 = TrafficLight("001")
+    traffic_light2 = TrafficLight("002")
+    intersection.add_traffic_light(traffic_light1)
+    intersection.add_traffic_light(traffic_light2)
+
+    # Add the intersection controller to the traffic signal system
+    signal_system.add_intersection_controller(intersection)
+
+    # Create a control panel for the intersection
+    control_panel = ControlPanel(intersection)
+
+    # Demonstration of changing signals
+    print("Initial state of traffic lights:")
+    for light_id, light in intersection.traffic_lights.items():
+        print(f"Light {light_id}: {light.state.name}")
+
+    # Change signal to GREEN at traffic light 1
+    intersection.change_signal("001", LightState.GREEN)
+    print("\nAfter changing state to GREEN:")
+    print(f"Light 001: {intersection.traffic_lights['001'].state.name}")
+
+    # Override signal to RED at traffic light 1 using the control panel
+    control_panel.override_signal("001", LightState.RED)
+    print("\nAfter overriding state to RED using Control Panel:")
+    print(f"Light 001: {intersection.traffic_lights['001'].state.name}")
+
+    # Change traffic light 2 to YELLOW
+    intersection.change_signal("002", LightState.YELLOW)
+    print("\nAfter changing state to YELLOW:")
+    print(f"Light 002: {intersection.traffic_lights['002'].state.name}")
+
+if __name__ == "__main__":
+    main()
+```
